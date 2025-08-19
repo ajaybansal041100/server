@@ -35,4 +35,4 @@ connectDB()
 
 app.use(express.json())
 app.use('/api/',web) //localhost:3000/api/
-app.listen(process.env.PORT,console.log("server started localhost:3000"))
+app.listen(process.env.PORT,console.log("server started at localhost:3000"))
