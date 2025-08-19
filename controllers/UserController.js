@@ -1,6 +1,6 @@
 const UserModel = require('../models/user');
 const bcrypt = require('bcrypt');
-const jwt=require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 
 class UserController {
@@ -44,39 +44,41 @@ class UserController {
             }
 
             //token create
-            const token = jwt.sign({ ID: user._id }, 'qwertyui123');
+            const token = jwt.sign({ ID: user._id },
+                process.env.JWT_SECRET,
+                { expiresIn: "2d" });
             //console.log(token)
             //send token in cookie
-            res.cookie("token",token,{
-                httpOnly:true,
+            res.cookie("token", token, {
+                httpOnly: true,
             });
             res
                 .status(200)
                 .json({
                     message: "Login successful",
-                    role:user.role,
-                    name:user.name,
-                    email:user.email,
+                    role: user.role,
+                    name: user.name,
+                    email: user.email,
                 });
         } catch (error) {
             console.log(error);
-            res.status(500).json({message:"Server error",error});
+            res.status(500).json({ message: "Server error", error });
         }
     };
 
-    static profile=async(req,res,next)=>{
-        try{
+    static profile = async (req, res, next) => {
+        try {
             console.log("hello profile")
-        }catch(error){
+        } catch (error) {
             console.log(error)
         }
     }
 
-    static logout=async(req,res)=>{
-        try{
+    static logout = async (req, res) => {
+        try {
             res.clearCookie('token')
-            res.status(200).json({message:"logout successfully"})
-        }catch(error){
+            res.status(200).json({ message: "logout successfully" })
+        } catch (error) {
             console.log(error);
         }
     }
