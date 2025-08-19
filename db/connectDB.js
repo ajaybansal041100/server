@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
-const Live_url= "mongodb+srv://ajay_0012:12345@cluster0.lmxaw7n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const LIVE_URL= "mongodb+srv://ajay_0012:12345@cluster0.lmxaw7n.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 const connectDB = async () => {
-    return mongoose.connect(process.env.Live_url)
+    return mongoose.connect(process.env.LIVE_URL)
         .then(() => {
             console.log("Database Connect Successful");
         })
