@@ -12,7 +12,7 @@ require("dotenv").config();
 
 app.use(
     cors({
-        origin:"https://coursebooking149.netlify.app/", // your frontend domain
+        origin:"https://coursebooking149.netlify.app", // your frontend domain
         credentials:true,  // allow credentials (cookies)
     })
 );
