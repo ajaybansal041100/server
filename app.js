@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const PORT = 3000
 const web = require('./routes/web')
 const connectDB=require('./db/connectDB')
 const fileuplaod=require('express-fileupload')
